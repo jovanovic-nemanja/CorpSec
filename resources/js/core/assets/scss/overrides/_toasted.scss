@@ -1,0 +1,96 @@
+// for toasted notifications
+.toasted-container {
+    align-items: flex-end;
+
+    &.top-left, &.top-center, &.top-right {
+        top: 4.2rem;
+    }
+    &.bottom-left, &.bottom-center, &.bottom-right {
+        bottom: 1rem;
+    }
+    
+    &.top-left, &.bottom-left {
+        left: 4.7rem;
+        align-items: flex-start;
+    }
+    &.top-center, &.bottom-center {
+        align-items: center;
+    }
+    &.top-right, &.bottom-right {
+        right: 1rem;
+    }
+
+    .toasted {
+        border-radius: 5px;
+        padding: 1rem 2rem 1rem 2rem;
+        font-size: 1rem;
+        // box-shadow: none; // uncomment to remove shadow
+    }
+    .toasted.primary {
+        color: white;
+        &.default {
+            background-color: theme-color('default');
+        }
+        &.success {
+            background-color: theme-color('success');
+        }
+        &.info {
+            background-color: theme-color('info');
+        }
+        &.error, &.danger {
+            background-color: theme-color('danger');
+        }
+     }
+}
+
+
+    
+@include media-breakpoint-down(sm) {
+    .toasted-container {
+        width: 100%;
+
+        &, &.top-right, &.bottom-right {
+            top: auto;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            
+            .toasted {
+                float: none;
+                justify-content: center;
+            }
+        }
+
+        .toasted {
+            border-radius: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            font-size: 0.85rem;
+            margin-top: 0px;
+            width: 100%;
+
+            .fa, .far, .fas, .fab, .mdi, .material-icons {
+                margin-left: 0;
+                font-size: 1.5rem;
+            }
+
+            & + .toasted {
+                border-top: 1px solid rgba(0,0,0,0.2);
+            }
+        }
+    }
+}
+
+.swal2-container {
+    z-index: 1080;
+}
+
+.swal2-container.swal2-container-dark {
+    .swal2-popup.swal2-toast.swal2-popup-dark {
+        background: $gray-charcoal;
+        color: $whitish;
+
+        .swal2-title {
+            color: $whitish;
+        }
+    }
+}

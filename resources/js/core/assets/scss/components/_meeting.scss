@@ -1,0 +1,537 @@
+.meeting-page {
+    min-height: 100vh;
+
+    &.base-container {
+        padding: $side-margin;
+        margin: 0;
+        width: 100%;
+    }
+
+    .meeting-header {
+        margin-bottom: $side-margin;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: $light;
+        // background-position: center center;
+        // background-repeat: no-repeat;
+        // background-size: auto 70%;
+
+        user-select: none; /* supported by Chrome and Opera */
+
+        .meeting-title {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .meeting-actions {
+            text-align: right;
+            display: none;
+            &>.btn {
+                box-shadow: none;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .video-list {
+        display: flex;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .video-item {
+            padding: 0px;
+            background: $light;
+            display: inline-block;
+            position: relative;
+            flex: 1 0 100%;
+            margin: 1px;
+            display: flex;
+            flex-direction: column;
+            border-radius: $border-radius-sm;
+            align-self: stretch;
+
+            video {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                max-height: fit-content;
+                border-top-left-radius: $border-radius-sm;
+                border-top-right-radius: $border-radius-sm;
+                &.no-poster{
+                    background: $blackish;
+                }
+            }
+
+            div.caption {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.5rem 1rem;
+                user-select: none; /* supported by Chrome and Opera */
+
+                h6 {
+                    color: $gray-darker;
+                    margin: 0;
+                }
+
+                .video-item-actions {
+                    &>.btn {
+                        margin: 0;
+                        color: $gray-darker;
+                        background: darken($light, 5);
+                        border: 0px;
+                        box-shadow: none;
+
+                        &:hover {
+                            color: $gray-dark;
+                            border: 0px;
+                            box-shadow: none;
+                        }
+                    }
+
+                    &>.dropdown-menu {
+                        right: -0.5rem;
+                    }
+                }
+
+            }
+
+            &.agenda-comments {
+                display: none;
+                padding: $spacer;
+            }
+
+            &.maximized {
+                flex-grow: 1;
+                order: -2;
+                flex-basis: 100%;
+                margin-bottom: $side-margin;
+
+                video {
+                    max-height: fit-content;
+                }
+            }
+        }
+
+        &.agenda-comments-visible {
+            .video-item {
+
+                &.agenda-comments,
+                &.maximized {
+                    flex-grow: 1;
+                    margin-bottom: $side-margin;
+                }
+
+                &.agenda-comments {
+                    display: flex;
+                    flex-direction: column;
+                    order: -1;
+                }
+
+                &.maximized {
+                    order: -2;
+                    flex-basis: 60%;
+                }
+
+            }
+
+            .comments-wrapper {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+
+                .comments-list {
+                    flex-grow: 1;
+
+                    &.no-comments {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+
+                .new-comment {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    position: relative;
+
+                    .comment-field-wrapper {}
+
+                    .comment-footer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 0.5rem;
+
+                        .user-image-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .comment-buttons {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        .meeting-agenda-container {
+            max-height: 420px;
+            overflow: hidden;
+            height: 420px;
+        }
+
+        .comments-list-container {
+            max-height: 290px;
+            overflow: hidden;
+            height: 290px;
+
+            .comments-list-wrapper {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .comment-item {
+                display: flex;
+                align-items: stretch;
+                padding-right: 0.5rem;
+
+                &+.comment-item {
+                    margin-bottom: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: $border-width solid $border-color;
+                }
+                &:first-child {
+                    border-bottom: $border-width solid transparent;
+                }
+
+                .user-image-wrapper {
+                    // display: flex;
+                    // flex-direction: column;
+                    // justify-content: center;
+                    margin-right: 0.5rem;
+                }
+
+                .comment-details-wrapper {
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+
+                    .comment-header {
+                        display: flex;
+                        align-items: baseline;
+
+                        .comment-user {
+                            margin: 0;
+                            color: rgba(0, 0, 0, 0.8);
+                            font-weight: 600;
+                        }
+
+                        .comment-created-at {
+                            display: inline-block;
+                            opacity: 0;
+                            margin-left: 0.7rem;
+                            transition: all 250ms $transition-all-easeinout;
+                            transition-delay: 500ms;
+                        }
+                    }
+
+                    .comment-body {
+                        flex-grow: 1;
+                        color: $gray-darker;
+                    }
+
+                    .comment-attachments {
+                        a {
+                            font-size: 75%;
+                            color: $gray-dark;
+
+                            span {
+                                border-bottom: $border-width dashed lighten($gray-dark, 5);
+                            }
+
+                            &:hover {
+                                color: $light;
+                                span {
+                                    border-color: $light;
+                                }
+                            }
+
+                            &:focus, &:active {
+                                color: $gray;
+                            }
+                        }
+                        a+a {
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+
+                &.own-comment {
+                    flex-direction: row-reverse;
+
+                    .user-image-wrapper {
+                        margin-right: 0;
+                        margin-left: 0.5rem;
+                    }
+
+                    .comment-details-wrapper {
+                        align-items: flex-end;
+
+                        .comment-header {
+                            flex-direction: row-reverse;
+
+                            .comment-created-at {
+                                margin-left: 0;
+                                margin-right: 0.7rem;
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    .comment-details-wrapper {
+                        .comment-header {
+                            .comment-created-at {
+                                opacity: 1;
+                                transition-delay: 500ms;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.no-video {
+            .meeting-agenda-container, .comments-list-container {
+                min-height: 300px;
+                max-height: 65vh;
+                height: 65vh;
+            }
+        }
+    }
+
+    .flip-clock {
+        .flip-card__top,
+        .flip-card__bottom,
+        .flip-card__back-bottom,
+        .flip-card__back::before,
+        .flip-card__back::after {
+            color: $light;
+            background: $gray-darker;
+        }
+
+        .flip-card__top-4digits,
+        .flip-card__bottom-4digits,
+        .flip-card__back-bottom-4digits,
+        .flip-card__back-4digits::before,
+        .flip-card__back-4digits::after {
+            color: $light;
+            background: $gray-darker;
+        }
+
+        .flip-card__bottom,
+        .flip-card__back-bottom,
+        .flip-card__bottom-4digits,
+        .flip-card__back-bottom-4digits {
+            color: lighten($light, 6);
+            background: lighten($gray-darker, 6);
+        }
+    }
+
+
+
+
+
+    &.dark {
+        .meeting-header {
+            background-color: $gray-darkest;
+
+            .meeting-title {
+                color: $gray;
+            }
+
+            .meeting-actions .btn {
+                color: $gray;
+            }
+        }
+
+        .video-list {
+            .video-item {
+                background: $gray-darkest;
+
+                &.agenda-comments {
+                    .meeting-title {
+                        color: $gray;
+                    }
+                }
+
+                video {
+                    &.no-poster{
+                        background: $black;
+                    }
+                }
+
+                div.caption {
+                    h6 {
+                        color: $gray-darker;
+                    }
+
+                    .video-item-actions {
+                        &>.btn {
+                            color: $gray-darker;
+                            background: darken($gray-darkest, 5);
+
+                            &:hover {
+                                color: $gray-dark;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .comments-list-container {
+            .comment-item {
+                &+.comment-item {
+                    border-bottom: $border-width solid rgba(0, 0, 0, 0.1);
+                }
+                &:first-child {
+                    border-bottom: $border-width solid transparent;
+                }
+                .user-image-wrapper {
+                    .vue-avatar--wrapper {
+                        background: rgba(0, 0, 0, 0.3) !important;
+                        border-color: 1px solid rgba(0, 0, 0, 0.1) !important;
+                        color: rgba(255, 255, 255, 0.4) !important;
+                    }
+                }
+
+                .comment-details-wrapper {
+                    .comment-header {
+                        .comment-user {
+                            color: rgba(255, 255, 255, 0.7);
+                        }
+                    }
+
+                    .comment-body {
+                        color: $gray-dark;
+                    }
+                }
+            }
+        }
+
+        .new-comment {
+            .comment-footer {
+                .user-image-wrapper {
+                    .vue-avatar--wrapper {
+                        background: rgba(0, 0, 0, 0.3) !important;
+                        border-color: 1px solid rgba(0, 0, 0, 0.1) !important;
+                        color: rgba(255, 255, 255, 0.4) !important;
+                    }
+                }
+            }
+
+            .comment-field-wrapper .new-comment-input.form-control {
+                background: rgba(0, 0, 0, 0.3);
+                border-color: rgba(0, 0, 0, 0.1);
+                transition: $transition-all-easeinout;
+                color: rgba(255, 255, 255, 0.8);
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.2);
+                }
+
+                &:focus,
+                &:active {
+                    background: rgba(0, 0, 0, 0.4);
+                    border-color: rgba(0, 0, 0, 0.2);
+                    transition: $transition-all-easeinout;
+                    color: rgba(255, 255, 255, 0.8);
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+[data-sidebar-left-show="true"] {
+    &[data-sidebar-left-style="push-content"] {
+        .meeting-page {
+            .meeting-agenda-container {
+                max-height: 235px;
+                height: 235px;
+            }
+
+            .comments-list-container {
+                max-height: 235px;
+                height: 235px;
+            }
+        }
+    }
+}
+
+
+
+@include media-breakpoint-up(sm) {
+    .meeting-page {
+
+        .meeting-header {
+            .meeting-actions {
+                display: block;
+            }
+            .meeting-actions-mobile {
+                display: none;
+            }
+        }
+
+        .video-list {
+            .video-item {
+                flex: 0 0 19.7%;
+                video {
+                    // max-height: 160px;
+                }
+
+                &.agenda-comments {
+                    flex-basis: 39%;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .meeting-page {
+        .video-list {
+            .video-item {
+                flex: 0 0 19.8%;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .meeting-page {
+        .video-list {
+            .video-item {
+                &.agenda-comments {
+                    flex-basis: 39.6%;
+                }
+            }
+        }
+    }
+}

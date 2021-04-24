@@ -1,1 +1,3 @@
-KodeUI - Laravel, Vue.js, Bootstrap - SPA Admin Starter Kit
+SASS Cusomer relationship project.
+
+KodeUI - Vue.js, Laravel, Bootstrap - SPA Admin Kit

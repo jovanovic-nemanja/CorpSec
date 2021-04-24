@@ -1,0 +1,43 @@
+<?php return array (
+    'setup' => 'Setup',
+    'no_internet_connection' => 'No internet connection.',
+    'install' => array(
+        'admin_setup' => 'Admin Setup',
+        'back_button_content' => 'Back',
+        'could_not_establish_db_connection' => 'Looks like, you have provided wrong database details. Please check your database connection again.',
+        'contact_script_author' => 'There is something wrong. Please contact script author.',
+        'table_exist_in_database' => 'Looks like, your database has some existing table. Installation requires, empty database to proceed. Please empty your database.',
+        'db_import_mismatch' => 'Database mismatch.',
+        'database_setup' => 'Database Setup',
+        'props' => array(
+            'db_database' => 'Database Name',
+            'db_host' => 'Hostname',
+            'db_password' => 'Database Password',
+            'db_port' => 'Database Port',
+            'db_username' => 'Database Username',
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'username' => 'Username',
+            'email' => 'Email',
+            'password' => 'Password',
+            'password_confirmation' => 'Confirm Password',
+            'contact_number' => 'Contact Number'
+        ),
+        'completed' => 'Installation completed. You can now login.',
+        'finish_button_content' => 'Finish',
+        'fix_folder_error' => 'There is some issue with folder permission. Please fix it.',
+        'fix_server_error' => 'Server doesn\'t fulfill requirement. Please fix it.',
+        'folder_permissions' => 'Folder Permissions',
+        'import_configuration_data' => 'Import Configuration Data',
+        'install' => 'Install',
+        'install_wizard' => 'Install Wizard',
+        'installation_processing' => 'Installation processing. This may take some time, please do not refresh or submit the form again!',
+        'next_button_content' => 'Next',
+        'pre_requisite' => 'Pre Requisite',
+        'ready_to_go' => 'Ready to GO!',
+        'ready_to_go_message' => 'Here is the final step. Just verify your purchase and you are all ready to go. If you are sure to install the application with given details, then please click on the finish button. You still have to a chance to recheck your data!',
+        'server_requirements' => 'Server Requirements',
+        'sub_title' => 'One click Installation Wizard',
+        'url' => 'Installation URL'
+    )
+);

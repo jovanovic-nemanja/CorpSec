@@ -1,0 +1,41 @@
+function enable() {
+    const toLock = document.getElementById('app-container')
+    let scrollPosition = toLock.pageYOffset;
+    toLock.style.overflow = 'hidden'
+    toLock.style.position = 'fixed'
+    toLock.style.width = '100%'
+}
+
+function disable() {
+    const toLock = document.getElementById('app-container')
+    toLock.style.removeProperty('overflow')
+    toLock.style.removeProperty('position')
+    toLock.style.removeProperty('width')
+}
+
+function toggle(value) {
+    if(value) {
+        enable()
+    } else {
+        disable()
+    }
+}
+
+export default {
+    bind: function(el, binding) {
+        // debugger
+        toggle(binding.value)
+    },
+    // inserted: function(el, binding) {
+    //     // debugger
+    //     toggle(binding.value)
+    // },
+    update: function(el, binding) {
+        // debugger
+        toggle(binding.value)
+    },
+    unbind: function(el) {
+        // debugger
+        disable()
+    }
+}

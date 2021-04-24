@@ -1,0 +1,205 @@
+{
+    "private_mask": "xxxxxxxxxx",
+    "default_config": {
+        "domain": {},
+        "system": {
+            "direction": "ltr",
+            "locale": "en",
+            "timezone": "Asia/Kolkata",
+            "date_format": "MMM D, YYYY",
+            "time_format": "h:mm A",
+            "per_page": 10,
+            "currency": "USD",
+            "footer_credit": "Product by KodeMint",
+            "setup_wizard": false,
+            "print_preview": true,
+            "todo": true,
+            "entity": true
+        },
+        "basic": {
+            "org_name": "KodeMint Services Pvt Ltd",
+            "org_foundation_date": "1970-01-01",
+            "app_name": "KodeUI",
+            "app_desc": "Admin SPA Starter Kit",
+            "app_theme_color": "#0059FF",
+            "app_background_color": "#ffffff"
+        },
+        "auth": {
+            "session_lifetime": 1440,
+            "login_throttle": false,
+            "lock_screen": true,
+            "lock_screen_timeout": 60,
+            "reset_password": true,
+            "reset_password_token_lifetime": 30,
+            "registration": true,
+            "email_verification": true,
+            "account_approval": true,
+            "two_factor_security": false,
+            "social_login": true,
+            "otp_lifetime": 10,
+            "email_otp_login": true,
+            "sms_otp_login": false,
+            "registration_terms": true
+        },
+        "website": {
+            "enabled": false,
+            "theme": "default"
+        },
+        "social": [],
+        "assets": {
+            "favicon": "/images/favicon.png",
+            "logo": "/images/logo.png",
+            "logo_light": "/images/logo-light.png",
+            "icon": "/images/icon.png",
+            "icon_512": "/images/icon-512.png",
+            "icon_192": "/images/icon-192.png",
+            "icon_180": "/images/icon-180.png",
+            "icon_32": "/images/icon-32.png",
+            "icon_16": "/images/icon-16.png"
+        },
+        "mail": {
+            "driver": "log",
+            "from_name": "KodeMint",
+            "from_address": "hi@kodemint.in"
+        },
+        "ui": {},
+        "pusher": {},
+        "chat": {
+            "enabled": true,
+            "auto_open": true,
+            "enter_to_submit": false,
+            "mute_sound_notification": false,
+            "separate_window": false
+        },
+        "signal": {
+            "url": null
+        },
+        "ice": {
+            "servers": []
+        }
+    },
+    "public_config": {
+        "system": [
+            "direction",
+            "locale",
+            "timezone",
+            "date_format",
+            "time_format",
+            "per_page",
+            "currency",
+            "footer_credit",
+            "setup_wizard",
+            "print_preview"
+        ],
+        "basic": [
+            "org_name",
+            "app_name",
+            "app_desc",
+            "app_theme_color",
+            "app_background_color"
+        ],
+        "auth": [
+            "reset_password",
+            "registration",
+            "two_factor_security",
+            "social_login",
+            "email_otp_login",
+            "sms_otp_login",
+            "registration_terms"
+        ],
+        "social": [],
+        "website": [
+            "enabled",
+            "theme"
+        ],
+        "assets": [
+            "favicon",
+            "logo",
+            "logo_light",
+            "icon",
+            "icon_512",
+            "icon_192",
+            "icon_180",
+            "icon_32",
+            "icon_16"
+        ]
+    },
+    "private_config": {
+        "mail": [
+            "smtp_username",
+            "smtp_password",
+            "mailgun_username",
+            "mailgun_password",
+            "mailgun_secret"
+        ],
+        "sms": [
+            "nexmo_api_key",
+            "nexmo_api_secret",
+            "twilio_sid",
+            "twilio_token",
+            "custom_sms_api_get_url"
+        ],
+        "auth": [
+            "google_client_id",
+            "google_client_secret",
+            "facebook_client_id",
+            "facebook_client_secret",
+            "twitter_client_id",
+            "twitter_client_secret",
+            "github_client_id",
+            "github_client_secret"
+        ],
+        "pusher": [
+            "pusher_app_id",
+            "pusher_app_secret"
+        ]
+    },
+    "bool_config": {
+        "system": [
+            "https",
+            "ip_filter",
+            "print_preview",
+            "error_display",
+            "backup",
+            "email_log",
+            "email_template",
+            "maintenance_mode",
+            "date_time_always_eng",
+            "multilingual",
+            "todo",
+            "setup_wizard",
+            "entity"
+        ],
+        "auth": [
+            "login_throttle",
+            "lock_screen",
+            "reset_password",
+            "two_factor_security",
+            "registration",
+            "email_verification",
+            "account_approval",
+            "social_login",
+            "email_otp_login",
+            "sms_otp_login",
+            "registration_terms",
+            "google",
+            "facebook",
+            "twitter",
+            "github"
+        ],
+        "chat": [
+            "enabled",
+            "auto_open",
+            "enter_to_submit",
+            "mute_sound_notification",
+            "separate_window"
+        ],
+        "website": [
+            "enabled"
+        ],
+        "meeting": [
+            "allow_deleting_cancelled_meetings",
+            "allow_deleting_ended_meetings"
+        ]
+    }
+}
