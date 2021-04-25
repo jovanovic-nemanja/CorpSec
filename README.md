@@ -48,3 +48,6 @@ BROWSERSYNC_PROXY_URL=local.csm
 
 SESSION_DOMAIN=.local.csm
 SANCTUM_STATEFUL_DOMAINS="local.csm,localhost,127.0.0.1,localhost:3000"
+
+node version 14
+npm version 6
